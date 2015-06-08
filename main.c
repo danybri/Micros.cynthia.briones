@@ -53,38 +53,18 @@ int main(void)
 			
 		if(readPortB(btn1) == 1)
 		{
-			ButtonChange++;
-		}
-		
-		switch(ButtonChange)
-		{
-			case 1:
 			turnOnGreenLed;
 			turnOffRedLed;
 			turnOffBlueLed;
-
-			
-			break;  
-			
-			case 2:
-				turnOnRedLed;
-				turnOffGreenLed;
-				turnOffBlueLed;
-
-			
-			break;
-			
-			case 3:
-				turnOnBlueLed;
-				turnOffRedLed;
-				turnOffGreenLed;
-			break;
-			
-			default:
-				ButtonChange = 1;
-			break;
-			
 		}
+		
+		else
+		{
+			turnOnRedLed;
+			turnOffGreenLed;
+			turnOffBlueLed;
+		}
+		
 		
 		
     } 
