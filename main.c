@@ -45,13 +45,20 @@ void delay(long ltime);
 int main(void)
 {	
 	cfgPorts();	
-	unsigned char ButtonChange = 1;
-
+	
+	turnOffGreenLed;
+	turnOffRedLed;
+	turnOffBlueLed;
+	
+	for(;;)
+	{
+	if(readPortB(btn1) == 1)
+	{
 	for(;;)
     {
 		//if((GPIOB_PDIR & 0x00000008) == 0)
 			
-		if(readPortB(btn1) == 1)
+		if(readPortB(btn1) == 0)
 		{
 			turnOnGreenLed;
 			turnOffRedLed;
@@ -64,8 +71,9 @@ int main(void)
 			turnOffGreenLed;
 			turnOffBlueLed;
 		}
+    }
 		
-		
+	}	
 		
     } 
     return 0;
@@ -90,10 +98,3 @@ void cfgPorts(void)
     GPIOD_PDDR = 0xFFFFFFFF;
 }
 //--------------------------------------------------------------
-void delay(long ltime)
-{
-	while (ltime > 0)
-	{
-		ltime--;
-	}
-}
